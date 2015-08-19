@@ -1,0 +1,51 @@
+<html>
+<body>
+<h2>Summary of bookings</h2>
+<script language="javascript" type="text/javascript">
+//CustomerBooking¿‡
+function CustomerBooking(bookingId,customerName,film,showDate)
+{
+this.customerName=customerName;
+this.bookingId=bookingId;
+this.film=film;
+this.showDate=showDate;
+}
+CustomerBooking.prototype.getCustomerName=function(){return this.customerName;}
+CustomerBooking.prototype.setCustomerName=function(customerName){this.customerName=customerName;}
+CustomerBooking.prototype.getShowDate=function(){return this.showDate;}
+CustomerBooking.prototype.setShowDate=function(showDate){this.showDate=showDate;}
+CustomerBooking.prototype.getFilm=function(){return this.film;}
+CustomerBooking.prototype.setFilm=function(film){this.film=film;}
+CustomerBooking.prototype.getBookingId=function(){return this.bookingId;}
+CustomerBooking.prototype.setBookingId=function(bookingId){this.bookingId=bookingId;}
+//cinema¿‡
+function cinema()
+{
+this.bookings=new Array();
+}
+cinema.prototype.addBooking=function(bookingId,customerName,film,showDate)
+{
+this.bookings[bookingId]=new CustomerBooking(bookingId,customerName,film,showDate);
+}
+cinema.prototype.getBookingsTable=function()
+{
+var booking;
+var bookingsTableHTML="<table border=1>";
+for(booking in this.bookings)
+{
+bookingsTableHTML+="<tr><td>"+this.bookings[booking].getBookingId()+"</td>";
+bookingsTableHTML+="<td>"+this.bookings[booking].getCustomerName()+"</td>";
+bookingsTableHTML+="<td>"+this.bookings[booking].getFilm()+"</td>";
+bookingsTableHTML+="<td>"+this.bookings[booking].getShowDate()+"</td>";
+bookingsTableHTML+="</tr>";
+}
+bookingsTableHTML+="</table>";
+return bookingsTableHTML;
+}
+var londonOdeon=new cinema();
+londonOdeon.addBooking(1234,"Robert Smith","Raging Bull","25 July 2004");
+londonOdeon.addBooking(1244,"Arnold","Toy","27 July 2004");
+document.write(londonOdeon.getBookingsTable());
+</script>
+</body>
+</html>

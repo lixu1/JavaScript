@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Using the srcElement Property</title>
+<script type="text/javascript">
+function image_eventHandler()
+{
+var sourceElement=window.event.srcElement;
+var eventType=window.event.type;
+if(eventType=="mouseover") sourceElement.src="2.gif";
+if(eventType=="mouseout") sourceElement.src="1.gif";
+}
+</script>
+</head>
+<body>
+<img src="1.gif" onmouseover="image_eventHandler()" onmouseout="image_eventHandler()"/>
+</body>
+</html>

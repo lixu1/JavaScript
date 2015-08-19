@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>example</title>
+<script language="javascript" type="text/javascript">
+var localTime=new Date();
+</script>
+</head>
+<body>
+<h4>UTC Time is
+<script language="javascript" type="text/javascript">
+document.write(localTime.toLocaleString());
+</script>
+</h4>
+<h4>Time Zone Offset is
+<script language="javascript" type="text/javascript">
+document.write(localTime.getTimezoneOffset());
+</script>
+</h4>
+<h4>
+Using toLocalTimeString() gives:
+<script language="javascript" type="text/javascript">
+if(localTime.toLocaleTimeString)
+{
+document.write(localTime.toLocaleTimeString());
+}
+</script>
+</h4>
+
+<h4>Using toTimeString() gives:
+<script language="javascript" type="text/javascript">
+if(localTime.toTimeString)
+{
+document.write(localTime.toTimeString())
+}
+</script>
+</h4>
+<h4>Using toLocaleDateString() gives:
+<script language="javascript" type="text/javascript">
+if(localTime.toLocaleDateString)
+{
+document.write(localTime.toLocaleDateString());
+}
+</script>
+</h4>
+Using toDateString() gives:
+<script language="javascript" type="text/javascript">
+if(localTime.toDateString)
+{
+document.write(localTime.toDateString());
+}
+</script>
+</h4>
+</body>
+</html>

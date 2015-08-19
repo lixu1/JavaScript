@@ -1,0 +1,48 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+function butRemoveWed_onclick()
+{
+	if(document.form1.theDay.options[2].text=="Wednesday")
+	{
+	document.form1.theDay.options[2]=null;
+	}
+	else alert("there is no Wednesday here!");
+}
+function butAddWed_onclick()
+{
+	if(document.form1.theDay.options[2].text!="Wednesday")
+	{
+	var indexCounter;
+	var days=document.form1.theDay;
+	var lastoption=new Option();
+	days.options[6]=lastoption;
+	for(indexCounter=6;indexCounter>2;indexCounter--)
+	{
+	days.options[indexCounter].text=days.options[indexCounter-1].text;
+	days.options[indexCounter].value=days.options[indexCounter-1].value;
+	}
+	var option=new Option("Wednesday",2);
+	days.options[2]=option;
+	}
+	else alert("do you want to have TWO Wednesday????");
+}
+</script>
+</head>
+<body>
+<form name=form1>
+<select name=theDay size=5>
+<option value=0 selected>Monday
+<option value=1>Tuesday
+<option value=2>Wednesday
+<option value=3>Thursday
+<option value=4>Friday
+<option value=5>Saturday
+<option value=6>Sunday
+</select>
+<br>
+<input type="button" value="Remove Wednesday" name=burRemoveWed onclick="butRemoveWed_onclick()">
+<input type="button" value="Add Wednesday" name=butAddWed onclick="butAddWed_onclick()">
+</form>
+</body>
+</html>

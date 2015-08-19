@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>example</title>
+</head>
+<body>
+<h1 id="Heading1">My Heading</h1>
+<p id="Paragraph1">This is some text in a paragraph</p>
+<script type="text/javascript">
+var h1Element=document.getElementById("Heading1");
+alert(h1Element);
+h1Element.style.color="red";
+var pElement=h1Element.nextSibling;
+alert(pElement);
+//pElement.style.fontFamily="Arial";
+h1Element=pElement.previousSibling;
+h1Element.style.fontFamily="Courier";
+</script>
+</body>
+</html>

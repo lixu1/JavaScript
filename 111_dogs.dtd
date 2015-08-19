@@ -1,0 +1,16 @@
+<!--The myDogs DTD-->
+<!ELEMENT myDogs (dog+)>
+
+<!--The <dog/> section-->
+<!ELEMENT dog(name,age,fullBlood,color)>
+<!ATTLIST dog breed CDATA #REQUIRED>
+<!ELEMENT name(#PCDATA)>
+<!ELEMENT age(years,months)>
+	<!--The <age/>section-->
+	<!ELEMENT months(#PCDATA)>
+	<!ELEMENT years(#PCDATA)>
+	<!--END age section-->
+<!ELEMENT fullBlood (#PCDATA)>
+<!ELEMENT color(#PCDATA)>
+<!--END <dog/>section-->
+<!--END of myDogs DTD-->

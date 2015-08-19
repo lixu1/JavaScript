@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Using the target Property</title>
+<script type="text/javascript">
+function image_eventHandler(evt)
+{
+var eventTarget=evt.target;
+var eventType=evt.type;
+if(eventType=="mouseover") eventTarget.src="2.gif";
+if(eventType=="mouseout")eventTarget.src="1.gif";
+}
+</script>
+</head>
+<body>
+<img src="1.gif" onmouseover="image_eventHandler(event)" onmouseout="image_eventHandler(event)"/>
+</body>
+</html>

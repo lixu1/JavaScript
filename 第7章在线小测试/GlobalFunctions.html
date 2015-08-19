@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Global functions</title>
+<script language="javascript" type="text/javascript">
+var questions=new Array();
+var answer=new Array();
+var questionAsked;
+var numberOfQuestionsAsked=0;
+var numberOfQuestionsCorrect=0;
+var currentQNumber=-1;
+questions[0]=new Array();
+questions[0][0]="The Beatles were";
+questions[0][1]="A sixties rock group from Liverpool";
+questions[0][2]="Four musically gifted insects";
+questions[0][3]="I don't know-can I have the questions on baseball please";
+answer[0]="A";
+
+function resetQuiz()
+{
+var indexCounter;
+currentQNumber=-1;
+questionsAsked=new Array();
+for(indexCounter=0;indexCounter<questions.length;indexCounter++)
+{
+questionsAsked[indexCounter]=false;
+}
+numberOfQuestionsAsked=0;
+numberOfQuestionsCorrect=0;
+}
+
+function answerCorrect(questionNumber,answer)
+{
+var correct=false;
+if(answer==answers[questionNumber])
+{
+numbweOfQuestionsCorrect++;
+correct=true;
+}
+return correct;
+}
+
+function getQuestion()
+{
+if(questions.length!=numberOfQuestionsAsked)
+{
+var questionNumber=Math.floor(Math.random()*questions.length)
+while(questionsAsked[questionNumber]==true)
+{
+questionNumber=Math.floor(Math.random()*questions.length);
+}
+var questionLength=questions[questionNumber].length;
+var questionChoice;
+numberOfQuestionsAsked++;
+var questionHTML="<h4>Question "+numberOfQuestionsAsked+"</h4>";
+questionHTML=questionHTML+"<p>"+questions[questionNumber][0]+"</p>";
+for(questionChoice=1;questionChoice<questionLength;questionChoice++)
+{
+questionHTML+="<input type=radio name=radQuestionChoice";
+if(questionChoice==1)
+{
+questionHTML+=" checked";
+}
+questionHTML+=">"+questions[questionNumber][questionChoice]+"<br>";
+}
+questionHTML+="<br><input type='button' "+"value='Answer Question' name=buttonNextQ onclick='return buttonCheckQ_onclick()'>";
+currentQNumber=questionNumber;
+questionsAsked[questionNumber]=true;
+}
+else
+{
+var questionHTML="<h3>Quiz Complete</h3>";
+questionHTML+="You got "+numberOfQuestionsCorrect+numberOfQuestionsAsked+"<br><br>Your trivia rating is ";
+switch(Math.round(((numberOfQuestionsCorrect/numberOfQuestionsAsked)*10)))
+{
+case 0:
+case 1:
+case 2:
+case 3:
+questionHTML+="Beyond embarrassing";
+break;
+case 4:
+case 5:
+case 6:
+case 7:
+questionHTML+="Average";
+break;
+default:
+questionHTML+="Excellent";
+}
+questionHTML+="<br><br><A href='quizpage.html'><strong>Start again</strong></A>";
+}
+return questionHTML;
+}
+</script>
+</head>
+<body>
+</body>
+</html>

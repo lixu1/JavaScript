@@ -1,0 +1,37 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+function getBrowserName()
+{
+var isBrowser=navigator.userAgent;
+if(isBrowser.indexOf("MSIE")>=0)isBrowser="MSIE";
+else if(isBrowser.indexOf("Netscape")>=0)isBrowser="Netscape";
+else if(isBrowser.indexOf("Firefox")>=0)isBrowser="Firefox";
+else if(isBrowser.indexOf("Safari")>=0)isBrowser="Safari";
+else if(isBrowser.indexOf("Opera")>=0)isBrowser="Opera";
+else isBrowser="unknown";
+return isBrowser;
+}
+function getBrowserVersion()
+{
+var findIndex;
+var browserVersion=0;
+var browser=getBrowserName();
+browserVersion=navigator.userAgent;
+findIndex=browserVersion.indexOf(browser)+browser.length+1;
+browserVersion=parseFloat(browserVersion.substring(findIndex,findIndex+3));
+return browserVersion;
+}
+</script>
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+var browserName=getBrowserName();
+var browserVersion=getBrowserVersion();
+document.write("ä¯ÀÀÆ÷Àà±ð£º"+browserName+"<br>°æ±¾£º"+browserVersion);
+</script>
+<noscript>
+<h2>This website requires a browser supporting scripting</h2>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+var timerID;
+function window_onload()
+{
+timerID=setTimeout("alert('Times Up!')",3000);
+alert("Timer Set");
+}
+function butStopTimer_onclick()
+{
+clearTimeout(timerID);
+alert("Timer has been cleared");
+}
+</script>
+</head>
+<body language="javascript" onload="window_onload()">
+<form name=form1>
+<input type="button" value="Stop Timer" name=butStopTimer language=javascript onclick="return butStopTimer_onclick()">
+</form>
+</body>
+</html>
+</body>
+</html>

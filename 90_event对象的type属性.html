@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Using the type Property</title>
+<script type="text/javascript">
+function paragraph_eventHandler()
+{
+if(window.event.type=="click") alert("You Clicked Me");
+else if(window.event.type=="mouseover") alert("You Tickled Me!");
+}
+</script>
+</head>
+<body>
+<p onmouseover="paragraph_eventHandler()">
+Move your mouse over me.
+</p>
+<p onclick="paragraph_eventHandler()">
+Click me!
+</p>
+</body>
+</html>

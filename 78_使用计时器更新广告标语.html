@@ -1,0 +1,24 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+var currentImgNumber=1;
+var numberOfImages=3;
+function window_onload()
+{
+setTimeout("switchImage()",1000);
+}
+function switchImage()
+{
+currentImgNumber++;
+document.imgAdvert.src=currentImgNumber+".gif";
+if(currentImgNumber<numberOfImages)
+{
+setTimeout("switchImage()",1000);
+}
+}
+</script>
+</head>
+<body onload="window_onload()">
+<img src="1.gif" name="imgAdvert">
+</body>
+</html>

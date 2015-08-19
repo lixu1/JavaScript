@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Cross-browser Image Rollover</title>
+</head>
+<body>
+<img src="1.gif"/>
+<script type="text/javascript">
+function image_eventHandler(evt)
+{
+var elementTarget;
+var eventType;
+if(window.event)
+{
+elementTarget=window.event.srcElement;
+eventType=window.event.type;
+}
+else
+{
+elementTarget=evt.target;
+eventType=evt.type;
+}
+if(eventType=="mouseover") elementTarget.src="2.gif";
+if(eventType=="mouseout") elementTarget.src="1.gif";
+}
+document.images[0].onmouseover=image_eventHandler;
+document.images[0].onmouseout=image_eventHandler;
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<head>
+<object classid="clsid:CFCDAA03-8BE4-11CF-B84B-0020AFBBCCFA" id="real1" width="0" height="0">
+<param name="height" value="0">
+<param name="width" value="0">
+<embed name="real1" id="real1" border="0" controls="play" height=0 width=0 type="audio/x-pn-realaudio-plugin">
+</object>
+<script type="text/javascript">
+var fileName="";
+function butPlay_onclick()
+{
+document.real1.SetSource("file:///"+fileName);
+document.real1.DoPlay();
+}
+function butStop_onclick()
+{
+document.real1.DoStop();
+}
+function file1_onblur()
+{
+fileName=document.form1.file1.value;
+}
+
+function window_onload()
+{
+var plugInstalled=false;
+if(navigator.appName.indexOf("Microsoft")==-1)
+{
+var plugInCounter;
+for(plugInCounter=0;plugInCounter<navigator.plugins.length;plugInCounter++)
+{
+if(navigator.plugins[plugInCounter].name.indexOf("RealPlayer")>=0)
+{
+plugInstalled=true;
+break;
+}
+}
+}
+else
+{
+if(real1.readyState==4)plugInstalled=true;
+}
+if(plugInstalled==false)alert("²»Ö§³Ö");
+}
+</script>
+</head>
+<body onload="return window_onload()">
+<noembed>
+<h2>This page requires a browser supporting plug-ins or ActiveX controls</h2>
+</noembed>
+<form id=form1 name=form1>
+<input type="button" value="Play Sound" id="butPlay" name="butPlay" onclick="return butPlay_onclick()">
+<input type="button" value="Stop Sound" id="butStop" name="butStop" onclick="return butStop_onclick()">
+<input type="file" id="file1" name="file1" onblur="return file1_onblur()">
+</form>
+</body>
+</html>

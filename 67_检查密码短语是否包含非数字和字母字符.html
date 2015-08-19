@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Example</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+function regExpIs_valid(text)
+{
+var myRegExp=/[^a-z\d ]/i;
+return !(myRegExp.test(text));
+}
+function butCheckValid_onclick()
+{
+if(regExpIs_valid(document.form1.txtPhrase.value)==true)alert("Your passphrase contatins only valid characters");
+else alert("Your passphrase contains one or more invalid characters");
+}
+</script>
+<form name=form1>
+Enter your passphrase:
+<br>
+<input type="text" name=txtPhrase>
+<br>
+<input type="button" value="Check Character Validity" name=butCheckValid onclick="butCheckValid_onclick()">
+</form>
+</body>
+</html>

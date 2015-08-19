@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Using the type Property in Other Browsers</title>
+<script type="text/javascript">
+function paragraph_eventHandler(evt)
+{
+if(evt.type=="click") alert("You click me");
+else if(evt.type=="mouseover") alert("You Tickled me");
+}
+</script>
+</head>
+<body>
+<p onmouseover="paragraph_eventHandler(event)">
+Move your mouse over me.
+</p>
+<p onclick="paragraph_eventHandler(event)">
+Click me!
+</p>
+</body>
+</html>

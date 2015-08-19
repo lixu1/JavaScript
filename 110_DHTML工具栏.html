@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>IE Toolbar</title>
+<style type="text/css">
+.toolbar
+{
+background-color:#E4E2D5;
+padding:2px;
+}
+.toolbar span
+{
+display:inline-block;
+height:24px;
+width:24px;
+}
+.toolbar-button
+{
+padding:3px;
+}
+.toolbar-button-hover
+{
+border:1px solid #316AC5;
+background-color:#C1D2EE;
+padding:2px;
+cursor:pointer;
+}
+.toolbar-icon
+{
+height:24px;
+width:24px;
+}
+</style>
+<script type="text/javascript">
+function button_mouseHandler()
+{
+var eType=event.type;
+var eSrc=event.srcElement;
+if(eSrc.tagName=="IMG")eSrc=eSrc.parentNode;
+if(eType=="mouseover")eSrc.className="toolbar-button-hover";
+else if(eType=="mouseout")eSrc.className="toolbar-button";
+else if(eType=="click")
+{
+eSrc.className="toolbar-button";
+window.location.href=eSrc.getAttribute("href");
+}
+}
+function createToolbar(sName,aButtons)
+{
+var toolbar=document.createElement("div");
+toolbar.id=sName;
+toolbar.className="toolbar";
+for(var i=0;i<aButtons.length;i++)
+{
+var thisButton=aButtons[i];
+var button=document.createElement("span");
+var icon=document.createElement("img");
+button.setAttribute("href",thisButton[1]);
+button.className="toolbar-button";
+button.onclick=button_mouseHandler;
+button.onmouseover=button_mouseHandler;
+button.onmouseout=button_mouseHandler;
+
+icon.src=thisButton[0];
+icon.className="toolbar-icon";
+
+button.appendChild(icon);
+toolbar.appendChild(button);
+}
+document.body.appendChild(toolbar);
+}
+var myToolbar=new Array();
+myToolbar[0]=new Array();
+myToolbar[0][0]="1.gif";
+myToolbar[0][1]="javascript:alert('You Clicked the 1 button!')";
+
+myToolbar[1]=new Array();
+myToolbar[1][0]="2.gif";
+myToolbar[1][1]="javascript:alert('You Clicked the 2 button!')";
+
+myToolbar[2]=new Array();
+myToolbar[2][0]="3.gif";
+myToolbar[2][1]="http://www.wrox.com";
+</script>
+</head>
+<body onload="createToolbar('myToolbar',myToolbar);">
+</body>
+</html>
